@@ -13,6 +13,7 @@
 		046DEC712535FC5200B75040 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC6F2535FC5200B75040 /* Main.storyboard */; };
 		046DEC732535FC5500B75040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC722535FC5500B75040 /* Assets.xcassets */; };
 		046DEC762535FC5500B75040 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC742535FC5500B75040 /* LaunchScreen.storyboard */; };
+		04DA97F42538EDFD00F71987 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97F32538EDFD00F71987 /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		046DEC722535FC5500B75040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046DEC752535FC5500B75040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		046DEC772535FC5500B75040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DA97F32538EDFD00F71987 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				046DEC6B2535FC5200B75040 /* SceneDelegate.swift */,
 				046DEC6D2535FC5200B75040 /* ViewController.swift */,
 				046DEC6F2535FC5200B75040 /* Main.storyboard */,
+				04DA97F32538EDFD00F71987 /* MainTableViewController.swift */,
 				046DEC722535FC5500B75040 /* Assets.xcassets */,
 				046DEC742535FC5500B75040 /* LaunchScreen.storyboard */,
 				046DEC772535FC5500B75040 /* Info.plist */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DA97F42538EDFD00F71987 /* MainTableViewController.swift in Sources */,
 				046DEC6E2535FC5200B75040 /* ViewController.swift in Sources */,
 				046DEC6A2535FC5200B75040 /* AppDelegate.swift in Sources */,
 				046DEC6C2535FC5200B75040 /* SceneDelegate.swift in Sources */,
