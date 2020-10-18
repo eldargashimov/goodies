@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="BYZ-38-t0r" customClass="ViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="BYZ-38-t0r" customClass="InitialViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,7 @@
                     </view>
                     <connections>
                         <outlet property="logoLabel" destination="ril-hy-MXH" id="u4B-iL-aW5"/>
-                        <segue destination="NY7-Rt-waR" kind="presentation" identifier="launchForMain" modalTransitionStyle="partialCurl" id="Sta-3O-zbC"/>
+                        <segue destination="uEY-lw-349" kind="show" identifier="launchForMain" id="Sta-3O-zbC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -43,7 +43,7 @@
             <objects>
                 <tableViewController modalPresentationStyle="fullScreen" id="NY7-Rt-waR" customClass="MainTableViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EiW-ms-YIn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -61,10 +61,100 @@
                             <outlet property="delegate" destination="NY7-Rt-waR" id="ypO-PP-KOd"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="uTg-A8-OB3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJi-Ks-0Ak" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202" y="110"/>
+            <point key="canvasLocation" x="2297.1014492753625" y="109.82142857142857"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="jNG-Wj-dev">
+            <objects>
+                <tableViewController modalPresentationStyle="fullScreen" id="pzC-XC-efs" customClass="ShoppingTableViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lId-5D-YYz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCell" id="euA-e2-KSU">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="euA-e2-KSU" id="am7-St-jGc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pzC-XC-efs" id="CNa-dA-obZ"/>
+                            <outlet property="delegate" destination="pzC-XC-efs" id="S18-3h-L1a"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" image="bag" catalog="system" id="SOo-qO-6Q4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qGC-mL-RDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="474" y="-587"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="l6C-Qj-g1m">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="uEY-lw-349" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="6EA-l4-eH1"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sdT-b7-MvJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="hoS-Xd-t7w" kind="relationship" relationship="viewControllers" id="GmV-wc-eUc"/>
+                        <segue destination="Ypq-DR-Shj" kind="relationship" relationship="viewControllers" id="7dr-j0-jRG"/>
+                        <segue destination="pzC-XC-efs" kind="relationship" relationship="viewControllers" id="iOZ-D9-f08"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6n4-1b-Vki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476.81159420289856" y="109.82142857142857"/>
+        </scene>
+        <!--item-->
+        <scene sceneID="3NN-2f-RM9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hoS-Xd-t7w" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="item" image="house" catalog="system" id="o1Z-j5-My5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dms-Bp-Z7D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NY7-Rt-waR" kind="relationship" relationship="rootViewController" id="rtC-mV-iPt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tD-GX-t4y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386.9565217391305" y="109.82142857142857"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="bxc-Ea-aDV">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Ypq-DR-Shj" customClass="SearchViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yMa-hD-hkv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Rq-qk-SHX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="6ct-sX-ofe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i93-tx-7cx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="851"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bag" catalog="system" width="64" height="64"/>
+        <image name="house" catalog="system" width="64" height="54"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+    </resources>
 </document>

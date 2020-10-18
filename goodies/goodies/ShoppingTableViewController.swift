@@ -1,41 +1,41 @@
 //
-//  MainTableViewController.swift
+//  ShoppingTableViewController.swift
 //  goodies
 //
-//  Created by Mac on 10/15/20.
+//  Created by Mac on 10/17/20.
 //
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
-    let someDishes = ["Карбонара", "Борщ", "Ичпачмак", "Ризотто с креветками под винным соусом", "Британский завтрак", "Неаполитанская пицца", "Хинкали", "Манты", "Тататрский плов", "Бурата с томатами и перцем", "Фаршированный перец", "Ленивые вареники", "Цезарь с курицей", "Брускетта со страчателлой", "Поэлья", "Блинчики с сулугуни и шпинатом", "Глазунья", "Шарлотка", "Фаршированный индюк ёптэ"]
+class ShoppingTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Лента"
+        title = "Покупки"
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return someDishes.count
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath)
-        cell.textLabel?.text = someDishes[indexPath.row]
-        cell.imageView?.image = UIImage(named: "dish")
-        cell.imageView?.layer.cornerRadius = 25
-        cell.imageView?.clipsToBounds = true
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-    
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
