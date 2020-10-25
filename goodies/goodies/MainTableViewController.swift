@@ -7,33 +7,61 @@
 
 import UIKit
 
+
 class MainTableViewController: UITableViewController {
-    let someDishes = ["Карбонара", "Борщ", "Ичпачмак", "Ризотто с креветками под винным соусом", "Британский завтрак", "Неаполитанская пицца", "Хинкали", "Манты", "Тататрский плов", "Бурата с томатами и перцем", "Фаршированный перец", "Ленивые вареники", "Цезарь с курицей", "Брускетта со страчателлой", "Поэлья", "Блинчики с сулугуни и шпинатом", "Глазунья", "Шарлотка", "Фаршированный индюк ёптэ"]
+    let someDishes = ["Карбонара",
+                      "Борщ",
+                      "Ичпачмак",
+                      "Ризотто с креветками",
+                      "Британский завтрак",
+                      "Неаполитанская пицца",
+                      "Хинкали",
+                      "Манты",
+                      "Тататрский плов",
+                      "Бурата с томатами и перцем",
+                      "Фаршированный перец",
+                      "Ленивые вареники",
+                      "Цезарь с курицей",
+                      "Брускетта со страчателлой",
+                      "Поэлья",
+                      "Блинчики с сулугуни и шпинатом",
+                      "Глазунья",
+                      "Шарлотка",
+                      "Фаршированный индюк"]
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Лента"
+        tableView.separatorStyle = .none
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return someDishes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath)
-        cell.textLabel?.text = someDishes[indexPath.row]
-        cell.imageView?.image = UIImage(named: "dish")
-        cell.imageView?.layer.cornerRadius = 25
-        cell.imageView?.clipsToBounds = true
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
+        cell.dishName.text = someDishes[indexPath.row]
+        cell.dishName.font = UIFont(name: "Verdana", size: 18.0)
+        cell.dishName.textAlignment = .center
+        cell.dishImage.image = UIImage(named: "dish")
+        cell.dishImage.layer.cornerRadius = 10
+        cell.dishImage.clipsToBounds = true
+        cell.timeCooking.text = "15 мин."
+        cell.timeCooking.font = UIFont(name: "Verdana", size: 16.0)
+        cell.timeCooking.textAlignment = .right
+        cell.timeCooking.textColor = .white
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 244
     }
     
     /*

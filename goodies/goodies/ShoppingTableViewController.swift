@@ -11,7 +11,6 @@ class ShoppingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Покупки"
     }
 
     // MARK: - Table view data source

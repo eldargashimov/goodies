@@ -1,0 +1,6 @@
+framework module Pods_goodies {
+  umbrella header "Pods-goodies-umbrella.h"
+
+  export *
+  module * { export * }
+}
