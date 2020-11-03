@@ -9,25 +9,9 @@ import UIKit
 
 
 class MainTableViewController: UITableViewController {
-    let someDishes = ["Карбонара",
-                      "Борщ",
-                      "Ичпачмак",
-                      "Ризотто с креветками",
-                      "Британский завтрак",
-                      "Неаполитанская пицца",
-                      "Хинкали",
-                      "Манты",
-                      "Тататрский плов",
-                      "Бурата с томатами и перцем",
-                      "Фаршированный перец",
-                      "Ленивые вареники",
-                      "Цезарь с курицей",
-                      "Брускетта со страчателлой",
-                      "Поэлья",
-                      "Блинчики с сулугуни и шпинатом",
-                      "Глазунья",
-                      "Шарлотка",
-                      "Фаршированный индюк"]
+    
+    let dishes = Dish.generateDishes()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Лента"
@@ -41,22 +25,19 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return someDishes.count
+        return dishes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
-        cell.dishName.text = someDishes[indexPath.row]
-        cell.dishName.font = UIFont(name: "Verdana", size: 18.0)
-        cell.dishName.textAlignment = .center
-        cell.dishImage.image = UIImage(named: "dish")
-        cell.dishImage.layer.cornerRadius = 10
-        cell.dishImage.clipsToBounds = true
-        cell.timeCooking.text = "15 мин."
-        cell.timeCooking.font = UIFont(name: "Verdana", size: 16.0)
-        cell.timeCooking.textAlignment = .right
-        cell.timeCooking.textColor = .white
+        cell.dishName.text = dishes[indexPath.row].name
+        cell.dishImage.image = UIImage(named: dishes[indexPath.row].image)
+        if let timeCooking = dishes[indexPath.row].timeCooking {
+            cell.timeCooking.text = timeCooking
+        } else {
+            cell.timeCooking.text = "неизвестно"
+        }
         return cell
     }
     
@@ -64,6 +45,7 @@ class MainTableViewController: UITableViewController {
         return 244
     }
     
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -6,5 +6,6 @@ target 'goodies' do
   use_frameworks!
 
   pod 'PinLayout'
+  pod 'RealmSwift'
 
 end
