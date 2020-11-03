@@ -16,14 +16,13 @@ private struct Constants {
 }
 
 class DishTableViewCell: UITableViewCell {
-    
-    var dishImage = UIImageView()
-    var dishName = UILabel()
-    var timeCooking = UILabel()
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setup()
         
+        
+    }
+    func setup(){
         dishName.font = UIFont(name: "Verdana", size: 18.0)
         dishName.textAlignment = .center
         dishImage.layer.cornerRadius = 10
@@ -31,6 +30,18 @@ class DishTableViewCell: UITableViewCell {
         timeCooking.font = UIFont(name: "Verdana", size: 16.0)
         timeCooking.textAlignment = .right
         timeCooking.textColor = .white
+        
+    }
+    
+    
+    var dishImage = UIImageView()
+    var dishName = UILabel()
+    var timeCooking = UILabel()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+     
         
         dishImage.pin
             .height(Constants.dishImageHeight)
@@ -62,7 +73,9 @@ class DishTableViewCell: UITableViewCell {
         super.init(coder: coder)
         addSubview(dishImage)
         addSubview(dishName)
+        
         addSubview(timeCooking)
+        setup()
     }
     
 }
