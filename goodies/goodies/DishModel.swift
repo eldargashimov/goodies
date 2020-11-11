@@ -5,15 +5,17 @@
 //  Created by Mac on 11/3/20.
 //
 
-import Foundation
+import RealmSwift
 
-struct Dish {
+class Dish: Object {
     
-    var name: String
-    var image: String
-    var timeCooking: String?
+    @objc dynamic var name: String?
+    @objc dynamic var imageData: Data?
+    @objc dynamic var timeCooking: String?
     
-    static let someDishes = ["Карбонара",
+    // ниже - код для создания НЕПУСТОЙ базы данных
+    
+    let someDishes = ["Карбонара",
                       "Борщ",
                       "Ичпачмак",
                       "Ризотто с креветками",
@@ -32,14 +34,21 @@ struct Dish {
                       "Глазунья",
                       "Шарлотка",
                       "Фаршированный индюк"]
-    
-    static func generateDishes () -> [Dish] {
-        var dishes = [Dish]()
+        
+    func saveDishesToDB () {
+        
+        let imageData = UIImage(named: "dish")?.pngData()
         
         for dish in someDishes {
-            dishes.append(Dish(name: dish, image: "dish", timeCooking: "15 мин."))
+            
+            let newDish = Dish()
+            let randomNumber = Int.random(in: 10...90)
+            
+            newDish.name = dish
+            newDish.imageData = imageData
+            newDish.timeCooking = "\(randomNumber) мин."
+            
+            StorageManager.saveDishToDB(newDish)
         }
-        return dishes
     }
-    
 }

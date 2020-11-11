@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0422115F2551CC41002D758F /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422115E2551CC41002D758F /* DishModel.swift */; };
-		043A55C2253B83D70040B08D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A55C1253B83D70040B08D /* SearchViewController.swift */; };
 		043A55C4253B85BE0040B08D /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */; };
 		043DC184254076B10016DE0F /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DC183254076B10016DE0F /* DishTableViewCell.swift */; };
+		04463AB02559D9FE0064B8B8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04463AAF2559D9FE0064B8B8 /* StorageManager.swift */; };
+		044A326A255985C5008E6FF8 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A3269255985C5008E6FF8 /* SearchTableViewController.swift */; };
 		046DEC6A2535FC5200B75040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DEC692535FC5200B75040 /* AppDelegate.swift */; };
 		046DEC6C2535FC5200B75040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DEC6B2535FC5200B75040 /* SceneDelegate.swift */; };
 		046DEC6E2535FC5200B75040 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046DEC6D2535FC5200B75040 /* InitialViewController.swift */; };
@@ -24,9 +25,10 @@
 
 /* Begin PBXFileReference section */
 		0422115E2551CC41002D758F /* DishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
-		043A55C1253B83D70040B08D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		043DC183254076B10016DE0F /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
+		04463AAF2559D9FE0064B8B8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		044A3269255985C5008E6FF8 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		046DEC662535FC5200B75040 /* goodies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goodies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046DEC692535FC5200B75040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046DEC6B2535FC5200B75040 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,10 +81,11 @@
 				046DEC6B2535FC5200B75040 /* SceneDelegate.swift */,
 				046DEC6F2535FC5200B75040 /* Main.storyboard */,
 				0422115E2551CC41002D758F /* DishModel.swift */,
+				04463AAF2559D9FE0064B8B8 /* StorageManager.swift */,
 				046DEC6D2535FC5200B75040 /* InitialViewController.swift */,
 				04DA97F32538EDFD00F71987 /* MainTableViewController.swift */,
 				043DC183254076B10016DE0F /* DishTableViewCell.swift */,
-				043A55C1253B83D70040B08D /* SearchViewController.swift */,
+				044A3269255985C5008E6FF8 /* SearchTableViewController.swift */,
 				043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */,
 				04FCBC74253DD7B9002CC30A /* ProfileViewController.swift */,
 				046DEC722535FC5500B75040 /* Assets.xcassets */,
@@ -223,13 +226,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043A55C2253B83D70040B08D /* SearchViewController.swift in Sources */,
 				043A55C4253B85BE0040B08D /* ShoppingTableViewController.swift in Sources */,
+				044A326A255985C5008E6FF8 /* SearchTableViewController.swift in Sources */,
 				04DA97F42538EDFD00F71987 /* MainTableViewController.swift in Sources */,
 				046DEC6E2535FC5200B75040 /* InitialViewController.swift in Sources */,
 				0422115F2551CC41002D758F /* DishModel.swift in Sources */,
 				04FCBC75253DD7B9002CC30A /* ProfileViewController.swift in Sources */,
 				043DC184254076B10016DE0F /* DishTableViewCell.swift in Sources */,
+				04463AB02559D9FE0064B8B8 /* StorageManager.swift in Sources */,
 				046DEC6A2535FC5200B75040 /* AppDelegate.swift in Sources */,
 				046DEC6C2535FC5200B75040 /* SceneDelegate.swift in Sources */,
 			);

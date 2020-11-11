@@ -109,7 +109,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="hoS-Xd-t7w" kind="relationship" relationship="viewControllers" id="GmV-wc-eUc"/>
-                        <segue destination="Ypq-DR-Shj" kind="relationship" relationship="viewControllers" id="7dr-j0-jRG"/>
+                        <segue destination="wy5-fV-CeI" kind="relationship" relationship="viewControllers" id="ZDK-lf-zdO"/>
                         <segue destination="pzC-XC-efs" kind="relationship" relationship="viewControllers" id="iOZ-D9-f08"/>
                         <segue destination="yJv-hF-F41" kind="relationship" relationship="viewControllers" id="jPP-Q9-ReS"/>
                     </connections>
@@ -153,21 +153,53 @@
             </objects>
             <point key="canvasLocation" x="-506" y="861"/>
         </scene>
-        <!--Поиск-->
-        <scene sceneID="bxc-Ea-aDV">
+        <!--Search Table View Controller-->
+        <scene sceneID="HGC-qO-GAN">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Ypq-DR-Shj" customClass="SearchViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yMa-hD-hkv">
+                <tableViewController id="of0-Hj-lqd" customClass="SearchTableViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6ib-2S-D1E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Rq-qk-SHX"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Поиск" image="magnifyingglass" catalog="system" id="6ct-sX-ofe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i93-tx-7cx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dishCell" id="w8b-aa-1hC" customClass="DishTableViewCell" customModule="goodies" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w8b-aa-1hC" id="zZr-6j-B2Q">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="of0-Hj-lqd" id="hCq-9Z-P92"/>
+                            <outlet property="delegate" destination="of0-Hj-lqd" id="yhf-PP-4gt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Qxs-Lf-rim"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4P9-YD-3We" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="477" y="851"/>
+            <point key="canvasLocation" x="1726.0869565217392" y="864.50892857142856"/>
+        </scene>
+        <!--Поиск-->
+        <scene sceneID="CIj-R6-hMY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wy5-fV-CeI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Поиск" image="magnifyingglass" catalog="system" id="wx7-ZE-Agp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iLb-yo-LEe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="of0-Hj-lqd" kind="relationship" relationship="rootViewController" id="gRK-gp-ky8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Let-G1-lKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.94202898550736" y="864.50892857142856"/>
         </scene>
     </scenes>
     <resources>

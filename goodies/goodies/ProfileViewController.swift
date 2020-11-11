@@ -8,9 +8,15 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+//    let newDish = Dish()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        DispatchQueue.main.async {
+//            self.newDish.saveDishesToDB()
+//        }
     }
     
 

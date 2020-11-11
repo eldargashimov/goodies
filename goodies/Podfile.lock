@@ -1,16 +1,26 @@
 PODS:
   - PinLayout (1.9.2)
+  - Realm (10.1.1):
+    - Realm/Headers (= 10.1.1)
+  - Realm/Headers (10.1.1)
+  - RealmSwift (10.1.1):
+    - Realm (= 10.1.1)
 
 DEPENDENCIES:
   - PinLayout
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
     - PinLayout
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   PinLayout: 0d96022e46e8b80468d819f182a393b97ca038da
+  Realm: 784ca1da1453e31a9c9adc14445421a81f316119
+  RealmSwift: cc52fe0dcea56387274dff36e19219e055a3bb84
 
-PODFILE CHECKSUM: 752ea605c0181300412e8637a8e4ae48bc03875a
+PODFILE CHECKSUM: 7cf5abe9718cd23bfc2a72c4cbfc12d1fd17714b
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

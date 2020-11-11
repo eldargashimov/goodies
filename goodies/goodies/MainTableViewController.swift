@@ -6,38 +6,50 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class MainTableViewController: UITableViewController {
     
-    let dishes = Dish.generateDishes()
+    var dishes: Results<Dish>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Лента"
         tableView.separatorStyle = .none
+        dishes = realm.objects(Dish.self)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dishes.count
+        return dishes.isEmpty ? 0 : dishes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
-        cell.dishName.text = dishes[indexPath.row].name
-        cell.dishImage.image = UIImage(named: dishes[indexPath.row].image)
-        if let timeCooking = dishes[indexPath.row].timeCooking {
+        let dish = dishes[indexPath.row]
+        
+        cell.dishName.text = dish.name
+        cell.dishName.font = UIFont(name: "Verdana", size: 18.0)
+        cell.dishName.textAlignment = .center
+        cell.dishImage.image = UIImage(data: dish.imageData!)
+        cell.dishImage.layer.cornerRadius = 10
+        cell.dishImage.contentMode = .scaleToFill
+        cell.dishImage.clipsToBounds = true
+        
+        if let timeCooking = dish.timeCooking {
             cell.timeCooking.text = timeCooking
         } else {
             cell.timeCooking.text = "неизвестно"
         }
+        
+        cell.timeCooking.font = UIFont(name: "Verdana", size: 16.0)
+        cell.timeCooking.textAlignment = .right
+        cell.timeCooking.textColor = .white
+        
         return cell
     }
     

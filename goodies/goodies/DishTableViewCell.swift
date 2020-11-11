@@ -24,14 +24,6 @@ class DishTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        dishName.font = UIFont(name: "Verdana", size: 18.0)
-        dishName.textAlignment = .center
-        dishImage.layer.cornerRadius = 10
-        dishImage.clipsToBounds = true
-        timeCooking.font = UIFont(name: "Verdana", size: 16.0)
-        timeCooking.textAlignment = .right
-        timeCooking.textColor = .white
-        
         dishImage.pin
             .height(Constants.dishImageHeight)
             .top(Constants.standardIndent)
