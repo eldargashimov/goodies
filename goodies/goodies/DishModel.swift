@@ -13,6 +13,7 @@ class Dish: Object {
     @objc dynamic var imageData: Data?
     @objc dynamic var timeCooking: String?
     
+    
     // ниже - код для создания НЕПУСТОЙ базы данных
     
     let someDishes = ["Карбонара",
@@ -51,4 +52,5 @@ class Dish: Object {
             StorageManager.saveDishToDB(newDish)
         }
     }
+    // ------------------------------------------------------
 }
