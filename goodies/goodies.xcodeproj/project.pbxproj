@@ -18,6 +18,7 @@
 		046DEC712535FC5200B75040 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC6F2535FC5200B75040 /* Main.storyboard */; };
 		046DEC732535FC5500B75040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC722535FC5500B75040 /* Assets.xcassets */; };
 		046DEC762535FC5500B75040 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC742535FC5500B75040 /* LaunchScreen.storyboard */; };
+		04D01429256F859400ABDC6E /* LentaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D01428256F859400ABDC6E /* LentaTableViewController.swift */; };
 		04DA97F42538EDFD00F71987 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97F32538EDFD00F71987 /* MainTableViewController.swift */; };
 		04FCBC75253DD7B9002CC30A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FCBC74253DD7B9002CC30A /* ProfileViewController.swift */; };
 		58F8512A9BB49596E2722AF9 /* Pods_goodies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E443FD1C7103838891DEF82 /* Pods_goodies.framework */; };
@@ -37,6 +38,7 @@
 		046DEC722535FC5500B75040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046DEC752535FC5500B75040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		046DEC772535FC5500B75040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04D01428256F859400ABDC6E /* LentaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaTableViewController.swift; sourceTree = "<group>"; };
 		04DA97F32538EDFD00F71987 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		04FCBC74253DD7B9002CC30A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1B984EA90A0A96D537BD4668 /* Pods-goodies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-goodies.debug.xcconfig"; path = "Target Support Files/Pods-goodies/Pods-goodies.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				04463AAF2559D9FE0064B8B8 /* StorageManager.swift */,
 				046DEC6D2535FC5200B75040 /* InitialViewController.swift */,
 				04DA97F32538EDFD00F71987 /* MainTableViewController.swift */,
+				04D01428256F859400ABDC6E /* LentaTableViewController.swift */,
 				043DC183254076B10016DE0F /* DishTableViewCell.swift */,
 				044A3269255985C5008E6FF8 /* SearchTableViewController.swift */,
 				043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */,
@@ -234,6 +237,7 @@
 				04FCBC75253DD7B9002CC30A /* ProfileViewController.swift in Sources */,
 				043DC184254076B10016DE0F /* DishTableViewCell.swift in Sources */,
 				04463AB02559D9FE0064B8B8 /* StorageManager.swift in Sources */,
+				04D01429256F859400ABDC6E /* LentaTableViewController.swift in Sources */,
 				046DEC6A2535FC5200B75040 /* AppDelegate.swift in Sources */,
 				046DEC6C2535FC5200B75040 /* SceneDelegate.swift in Sources */,
 			);

@@ -18,10 +18,10 @@ class StorageManager {
         }
     }
     
-//    static func deleteDishFromDB(_ dish: Dish) {
-//
-//        try! realm.write{
-//            realm.delete(dish)
-//        }
-//    }
+    static func deleteDishFromDB(_ dish: Dish) {
+
+        try! realm.write{
+            realm.delete(dish)
+        }
+    }
 }

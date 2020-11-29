@@ -25,8 +25,8 @@ class SearchTableViewController: MainTableViewController {
             
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Поиск"
         searchDishes = realm.objects(Dish.self)
-        
             // setup the search controller
         searchController.searchResultsUpdater = self // получатель информации об изменении текста в строке поиска - наш класс
         searchController.obscuresBackgroundDuringPresentation = false // позволяем пользователю взаимодействовать с полученным в результате поиска контентом
@@ -42,7 +42,7 @@ class SearchTableViewController: MainTableViewController {
     }
         
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
             let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
 
             let dish = filteredDishes[indexPath.row]
@@ -54,17 +54,17 @@ class SearchTableViewController: MainTableViewController {
             cell.dishImage.layer.cornerRadius = 10
             cell.dishImage.contentMode = .scaleToFill
             cell.dishImage.clipsToBounds = true
-        
+
             if let timeCooking = dish.timeCooking {
                 cell.timeCooking.text = timeCooking
             } else {
                 cell.timeCooking.text = "неизвестно"
             }
-        
+
             cell.timeCooking.font = UIFont(name: "Verdana", size: 16.0)
             cell.timeCooking.textAlignment = .right
             cell.timeCooking.textColor = .white
-        
+
             return cell
         }
 
@@ -81,15 +81,15 @@ class SearchTableViewController: MainTableViewController {
     }
 
     extension SearchTableViewController: UISearchResultsUpdating {
-        
+
         func updateSearchResults(for searchController: UISearchController) {
             filterContentForSearchText(searchController.searchBar.text!)
         }
-        
+
         private func filterContentForSearchText(_ searchText: String) {
-            
+
             filteredDishes = searchDishes.filter("name CONTAINS[c] %@ OR timeCooking CONTAINS[c] %@", searchText, searchText)
-            
+
             tableView.reloadData()
         }
     }

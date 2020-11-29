@@ -1,26 +1,22 @@
 //
-//  MainTableViewController.swift
+//  LentaTableViewController.swift
 //  goodies
 //
-//  Created by Mac on 10/15/20.
+//  Created by Mac on 11/26/20.
 //
 
 import UIKit
-import RealmSwift
 
+class LentaTableViewController: UITableViewController {
+    
+    var dishes = getRecipes(count: 5)
+    
+//    var heightImage: CGFloat = 0
 
-class MainTableViewController: UITableViewController {
-    
-    var dishes: Results<Dish>!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(DishTableViewCell.self, forCellReuseIdentifier: "dishCell")
         tableView.separatorStyle = .none
-        dishes = realm.objects(Dish.self)
     }
-
-    // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -33,24 +29,21 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
         let dish = dishes[indexPath.row]
 
-        cell.dishName.text = dish.name
+        cell.dishName.text = dish.title
         cell.dishName.font = UIFont(name: "Verdana", size: 18.0)
         cell.dishName.textAlignment = .center
-        cell.dishImage.image = UIImage(data: dish.imageData!)
-        cell.dishImage.layer.cornerRadius = 10
-        cell.dishImage.contentMode = .scaleToFill
+        cell.dishImage.image = getImage(for: "\(dish.id)")
+        cell.dishImage.layer.cornerRadius = 20
+        cell.dishImage.contentMode = .scaleAspectFill
         cell.dishImage.clipsToBounds = true
-
-        if let timeCooking = dish.timeCooking {
-            cell.timeCooking.text = timeCooking
-        } else {
-            cell.timeCooking.text = "неизвестно"
-        }
+        
+//        heightImage = cell.dishImage.bounds.width * 386 / 580
+        
+        cell.timeCooking.text = "\(dish.cooking_time["hours"] ?? 0) ч. \(dish.cooking_time["minutes"] ?? 0) мин."
 
         cell.timeCooking.font = UIFont(name: "Verdana", size: 16.0)
         cell.timeCooking.textAlignment = .right
         cell.timeCooking.textColor = .white
-
         return cell
     }
 

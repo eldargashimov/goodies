@@ -18,7 +18,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="goodies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ril-hy-MXH">
                                 <rect key="frame" x="135" y="427" width="144.5" height="52"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
-                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="-513" y="111"/>
         </scene>
-        <!--Main Table View Controller-->
+        <!--Лента-->
         <scene sceneID="S8U-7U-R5k">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="NY7-Rt-waR" customClass="MainTableViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Main" modalPresentationStyle="fullScreen" id="NY7-Rt-waR" customClass="LentaTableViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EiW-ms-YIn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +61,7 @@
                             <outlet property="delegate" destination="NY7-Rt-waR" id="ypO-PP-KOd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="uTg-A8-OB3"/>
+                    <navigationItem key="navigationItem" title="Лента" id="uTg-A8-OB3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJi-Ks-0Ak" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,9 +151,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u41-0H-eAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-506" y="861"/>
+            <point key="canvasLocation" x="-196" y="865"/>
         </scene>
-        <!--Search Table View Controller-->
+        <!--Поиск-->
         <scene sceneID="HGC-qO-GAN">
             <objects>
                 <tableViewController id="of0-Hj-lqd" customClass="SearchTableViewController" customModule="goodies" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,7 +176,7 @@
                             <outlet property="delegate" destination="of0-Hj-lqd" id="yhf-PP-4gt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Qxs-Lf-rim"/>
+                    <navigationItem key="navigationItem" title="Поиск" id="Qxs-Lf-rim"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4P9-YD-3We" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

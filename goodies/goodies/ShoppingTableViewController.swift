@@ -8,9 +8,15 @@
 import UIKit
 
 class ShoppingTableViewController: UITableViewController {
+    
+//    let newDish = Dish()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        DispatchQueue.main.async {
+//            self.newDish.saveDishesToDB()
+//        }
     }
 
     // MARK: - Table view data source

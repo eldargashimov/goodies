@@ -25,10 +25,11 @@ class DishTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         dishImage.pin
-            .height(Constants.dishImageHeight)
+//            .height(Constants.dishImageHeight)
             .top(Constants.standardIndent)
             .left(Constants.standardIndent)
             .right(Constants.standardIndent)
+            .height(dishImage.bounds.width * 386 / 580)
         
         dishName.pin
             .height(Constants.dishNameHeight)
@@ -40,21 +41,20 @@ class DishTableViewCell: UITableViewCell {
             .height(Constants.timeCookingHeight)
             .bottom(Constants.standardIndent * 6)
             .right(Constants.standardIndent * 2)
-            .width(Constants.standardIndent * 8)
-        
-//        dotView.pin
-//            .size(Constants.dotDiameter)
-//            .after(of: titleLabel)
-//            .marginLeft(Constants.dotLeftMargin)
-//            .top(to: titleLabel.edge.top)
+            .width(Constants.standardIndent * 13)
+
     }
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        addSubview(dishImage)
-        addSubview(dishName)
-        addSubview(timeCooking)
+        
+        [dishImage, dishName, timeCooking].forEach { addSubview($0) }
     }
+    
+    
     
 }

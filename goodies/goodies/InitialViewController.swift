@@ -18,7 +18,7 @@ class InitialViewController: UIViewController {
         logoLabel.alpha = 0.2
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             UIView.animate(withDuration: 0.5) {
-                self.logoLabel.textColor = .systemGreen
+                self.logoLabel.textColor = .green
                 self.logoLabel.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
                 self.logoLabel.alpha = 1
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
