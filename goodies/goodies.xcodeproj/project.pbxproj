@@ -18,6 +18,7 @@
 		046DEC712535FC5200B75040 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC6F2535FC5200B75040 /* Main.storyboard */; };
 		046DEC732535FC5500B75040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC722535FC5500B75040 /* Assets.xcassets */; };
 		046DEC762535FC5500B75040 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046DEC742535FC5500B75040 /* LaunchScreen.storyboard */; };
+		04A3B59B2586ABCA008CF292 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3B59A2586ABCA008CF292 /* Network.swift */; };
 		04D01429256F859400ABDC6E /* LentaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D01428256F859400ABDC6E /* LentaTableViewController.swift */; };
 		04DA97F42538EDFD00F71987 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97F32538EDFD00F71987 /* MainTableViewController.swift */; };
 		04FCBC75253DD7B9002CC30A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FCBC74253DD7B9002CC30A /* ProfileViewController.swift */; };
@@ -38,6 +39,7 @@
 		046DEC722535FC5500B75040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046DEC752535FC5500B75040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		046DEC772535FC5500B75040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A3B59A2586ABCA008CF292 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		04D01428256F859400ABDC6E /* LentaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentaTableViewController.swift; sourceTree = "<group>"; };
 		04DA97F32538EDFD00F71987 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		04FCBC74253DD7B9002CC30A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				046DEC6B2535FC5200B75040 /* SceneDelegate.swift */,
 				046DEC6F2535FC5200B75040 /* Main.storyboard */,
 				0422115E2551CC41002D758F /* DishModel.swift */,
+				04A3B59A2586ABCA008CF292 /* Network.swift */,
 				04463AAF2559D9FE0064B8B8 /* StorageManager.swift */,
 				046DEC6D2535FC5200B75040 /* InitialViewController.swift */,
 				04DA97F32538EDFD00F71987 /* MainTableViewController.swift */,
@@ -231,6 +234,7 @@
 			files = (
 				043A55C4253B85BE0040B08D /* ShoppingTableViewController.swift in Sources */,
 				044A326A255985C5008E6FF8 /* SearchTableViewController.swift in Sources */,
+				04A3B59B2586ABCA008CF292 /* Network.swift in Sources */,
 				04DA97F42538EDFD00F71987 /* MainTableViewController.swift in Sources */,
 				046DEC6E2535FC5200B75040 /* InitialViewController.swift in Sources */,
 				0422115F2551CC41002D758F /* DishModel.swift in Sources */,

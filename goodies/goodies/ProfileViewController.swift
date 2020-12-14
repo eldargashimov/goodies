@@ -86,7 +86,7 @@ class ProfileViewController: UIViewController {
         
         viewForButtons.layer.cornerRadius = 15
         viewForButtons.clipsToBounds = true
-        viewForButtons.backgroundColor = .green
+        viewForButtons.backgroundColor = UIColor(red: 0.5, green: 0.3, blue: 0.2, alpha: 1)
         
         favoritRecepts.font = UIFont(name: "Verdana", size: 20.0)
         favoritRecepts.text = "Избранные рецепты"

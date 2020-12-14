@@ -32,7 +32,8 @@ class MainTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
         let dish = dishes[indexPath.row]
-
+        
+        cell.dishName.numberOfLines = 0
         cell.dishName.text = dish.name
         cell.dishName.font = UIFont(name: "Verdana", size: 18.0)
         cell.dishName.textAlignment = .center
@@ -53,9 +54,21 @@ class MainTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let dish = dishes[indexPath.row]
+        
+        let deleteAction = UIContextualAction(style: .normal, title: "Удалить") { (_,_,_)  in
+            StorageManager.deleteDishFromDB(dish)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        deleteAction.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        return 316
+        return DishTableViewCell.height(for: dishes[indexPath.row].name!, width: tableView.bounds.width)
     }
 }

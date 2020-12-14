@@ -6,6 +6,7 @@
 //
 
 import RealmSwift
+import UIKit
 
 struct DishParse: Codable {
     
@@ -24,13 +25,13 @@ struct DishParse: Codable {
         let portions: Int
         let steps: [String:[String:String?]] // ["номер шага": ["описание шага":"ключ к фото для шага"]]
         
-        struct Source: Codable {
-            
-            let steps_img: [String:String?]
-            let title_img: String?
-        }
-        
-        let source: Source
+//        struct Source: Codable {
+//
+//            let steps_img: [String:String?]
+//            let title_img: String?
+//        }
+//
+//        let source: Source
         
         struct Calories: Codable {
             
@@ -43,110 +44,6 @@ struct DishParse: Codable {
         
         let id: Int
     }
-}
-
-func getIdArray (count: Int) -> [String] {
-    
-    var idArray: [String] = []
-    
-    let group = DispatchGroup()
-
-    guard let url = URL(string: "http://0.0.0.0:5000/\(count)") else { return idArray }
-    
-    group.enter()
-    URLSession.shared.dataTask(with: url) { (data,response,error) in
-    
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        
-        guard let data = data else { return }
-        
-        do {
-            
-            let Ids = try JSONDecoder().decode(DishParse.Ids.self, from: data)
-            idArray = Ids.list
-        } catch {
-//            let alert = UIAlertController(title: "Упс!", message: "Сервер недоступен:(", preferredStyle: .alert)
-//            let action = UIAlertAction(title: "OK", style: .default)
-//            alert.addAction(action)
-            print(error.localizedDescription)
-        }
-        group.leave()
-    }.resume()
-    
-    group.wait()
-    return idArray
-}
-
-
-
-func getRecipes (count: Int)  -> [DishParse.Recipe] {
-    
-    var recepts: [DishParse.Recipe] = []
-    
-    let serverUrlString = "http://0.0.0.0:5000/"
-    
-    let idArray = getIdArray(count: count)
-    
-    let group = DispatchGroup()
-    
-        for id in idArray {
-            
-            let dishUrl = URL(string: "\(serverUrlString)recipe/\(id)")
-            group.enter()
-            URLSession.shared.dataTask(with: dishUrl!) { (data,response,error) in
-            
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            guard let dataRecipe = data else { return }
-                
-                do {
-                    
-                    let newRecipe = try JSONDecoder().decode(DishParse.Recipe.self, from: dataRecipe)
-                    recepts.append(newRecipe)
-                } catch {
-                    print(error.localizedDescription)
-                }
-                group.leave()
-            }.resume()
-            
-        }
-    group.wait()
-    return recepts
-}
-
-func getImage(for key: String) -> UIImage {
-    
-    var image = UIImage()
-    
-    let group = DispatchGroup()
-
-    let urlString = key.contains(".") ? "http://0.0.0.0:5000/step_img/\(key)" : "http://0.0.0.0:5000/title_img/\(key)"
-
-    guard let url = URL(string: urlString) else {
-        return image
-    }
-    
-    group.enter()
-    URLSession.shared.dataTask(with: url) { (data, response, error) in
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        guard let imageData = data else {
-            return
-        }
-        
-        image = UIImage(data: imageData)!
-        group.leave()
-    }.resume()
-    group.wait()
-    return image
 }
 
 class Dish: Object {
