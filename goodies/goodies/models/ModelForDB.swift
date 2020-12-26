@@ -1,50 +1,5 @@
-//
-//  DishModel.swift
-//  goodies
-//
-//  Created by Mac on 11/3/20.
-//
-
 import RealmSwift
 import UIKit
-
-struct DishParse: Codable {
-    
-    struct Ids: Codable {
-        
-        var list: [String]
-    }
-    
-    struct Recipe: Codable {
-        
-        let title: String
-        let cooking_time: [String: Int] // ["minutes": Int, "hours": Int]
-        let description: String
-        let ingredients: [String:String] // ["name" : "quantity"]
-        let nutrition: [String:String] // ["Белки" : "количество", "жиры" : "количество", "углеводы" : "количество"]
-        let portions: Int
-        let steps: [String:[String:String?]] // ["номер шага": ["описание шага":"ключ к фото для шага"]]
-        
-//        struct Source: Codable {
-//
-//            let steps_img: [String:String?]
-//            let title_img: String?
-//        }
-//
-//        let source: Source
-        
-        struct Calories: Codable {
-            
-            let percent: Int
-            let unit: String
-            let value: Int
-        }
-        
-        let calories: Calories
-        
-        let id: Int
-    }
-}
 
 class Dish: Object {
     
@@ -87,5 +42,4 @@ class Dish: Object {
             StorageManager.saveDishToDB(newDish)
         }
     }
-    
 }
