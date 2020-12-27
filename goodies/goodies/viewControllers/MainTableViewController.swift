@@ -39,7 +39,7 @@ class MainTableViewController: UITableViewController {
         cell.dishName.textAlignment = .center
         cell.dishImage.image = UIImage(data: dish.imageData!)
         cell.dishImage.layer.cornerRadius = 10
-        cell.dishImage.contentMode = .scaleToFill
+        cell.dishImage.contentMode = .scaleAspectFill
         cell.dishImage.clipsToBounds = true
 
         if let timeCooking = dish.timeCooking {

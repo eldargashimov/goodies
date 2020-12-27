@@ -13,7 +13,6 @@ class SearchTableViewController: MainTableViewController {
     let parser = Parser()
     
     private let searchController = UISearchController(searchResultsController: nil)
-//    private var searchDishes: Results<Dish>!
     private var filteredDishes: [DishParse.Recipe] = []
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
@@ -28,7 +27,6 @@ class SearchTableViewController: MainTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Поиск"
-//        searchDishes = realm.objects(Dish.self)
             // setup the search controller
         searchController.searchResultsUpdater = self // получатель информации об изменении текста в строке поиска - наш класс
         searchController.obscuresBackgroundDuringPresentation = false // позволяем пользователю взаимодействовать с полученным в результате поиска контентом
@@ -74,10 +72,13 @@ class SearchTableViewController: MainTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-        let dishViewController = RecipeCardViewController(recipe: filteredDishes[indexPath.row], nibName: nil, bundle: nil)
-        dishViewController.view.backgroundColor = .white
-        present(dishViewController, animated: true, completion: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+            let dishViewController = RecipeCardViewController(recipe: filteredDishes[indexPath.row], nibName: nil, bundle: nil)
+            dishViewController.view.backgroundColor = .white
+            let navigationVC = UINavigationController(rootViewController: dishViewController)
+            navigationVC.modalPresentationStyle = .fullScreen
+            present(navigationVC, animated: true, completion: nil)
     }
 }
 
@@ -88,7 +89,7 @@ extension SearchTableViewController: UISearchResultsUpdating {
         }
     }
 
-// MARK: fucking search
+// MARK: search
     
     private func filterContentForSearchText(_ searchText: String) {
         DispatchQueue.global().sync {

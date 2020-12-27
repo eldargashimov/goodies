@@ -67,7 +67,7 @@ class LentaTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         let dishViewController = RecipeCardViewController(recipe: dishes[indexPath.row], nibName: nil, bundle: nil)
         dishViewController.view.backgroundColor = .white
 //        dishViewController.modalPresentationStyle = .fullScreen

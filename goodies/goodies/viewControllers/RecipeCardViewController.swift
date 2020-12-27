@@ -41,6 +41,8 @@ class RecipeCardViewController: UIViewController, UIScrollViewDelegate {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissVC))
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRecipeToDB))
+        
         recipeTableView.dataSource = self
         recipeTableView.delegate = self
         recipeTableView.bounces = false
@@ -169,16 +171,16 @@ class RecipeCardViewController: UIViewController, UIScrollViewDelegate {
 
         if scrollView == self.scrollView {
             if yOffset >= viewHeight {
-                print("yOffset scrollView = \(yOffset)")
+//                print("yOffset scrollView = \(yOffset)")
                 scrollView.isScrollEnabled = false
                 recipeTableView.isScrollEnabled = true
             }
         }
 
         if scrollView == self.recipeTableView {
-            print("yOffset = \(yOffset)")
+//            print("yOffset = \(yOffset)")
             if yOffset <= 0 {
-                print("yOffset tableView = \(yOffset)")
+//                print("yOffset tableView = \(yOffset)")
                 self.scrollView.isScrollEnabled = true
                 self.recipeTableView.isScrollEnabled = false
             }
@@ -188,6 +190,12 @@ class RecipeCardViewController: UIViewController, UIScrollViewDelegate {
     @objc
     private func dismissVC() {
         self.navigationController?.dismiss(animated: true)
+    }
+    
+    @objc
+    private func addRecipeToDB() {
+        StorageManager.saveDishToDB(ModelTransformer.transformToModelForDB(from: self.recipe))
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
 }
 

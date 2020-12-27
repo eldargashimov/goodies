@@ -9,7 +9,7 @@ import RealmSwift
 
 let realm = try! Realm()
 
-class StorageManager {
+final class StorageManager {
     
     static func saveDishToDB(_ dish: Dish) {
         

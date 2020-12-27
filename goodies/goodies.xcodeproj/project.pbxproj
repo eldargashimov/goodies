@@ -10,6 +10,7 @@
 		04070D0B2596728E00B568F1 /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04070D0A2596728E00B568F1 /* StepCell.swift */; };
 		04070D0D259672CC00B568F1 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04070D0C259672CC00B568F1 /* IngredientCell.swift */; };
 		04070D0F2596731300B568F1 /* RecipeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04070D0E2596731300B568F1 /* RecipeCardViewController.swift */; };
+		041547372598C425007D60FA /* ModelTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041547362598C425007D60FA /* ModelTransformer.swift */; };
 		043A55C4253B85BE0040B08D /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */; };
 		043DC184254076B10016DE0F /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DC183254076B10016DE0F /* DishTableViewCell.swift */; };
 		04463AB02559D9FE0064B8B8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04463AAF2559D9FE0064B8B8 /* StorageManager.swift */; };
@@ -35,6 +36,7 @@
 		04070D0A2596728E00B568F1 /* StepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCell.swift; sourceTree = "<group>"; };
 		04070D0C259672CC00B568F1 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		04070D0E2596731300B568F1 /* RecipeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardViewController.swift; sourceTree = "<group>"; };
+		041547362598C425007D60FA /* ModelTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTransformer.swift; sourceTree = "<group>"; };
 		043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		043DC183254076B10016DE0F /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		04463AAF2559D9FE0064B8B8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				04657F7725973EA800438DEC /* ModelForDB.swift */,
 				04657F7525973E6B00438DEC /* ModelForNetwork.swift */,
+				041547362598C425007D60FA /* ModelTransformer.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				04D01429256F859400ABDC6E /* LentaTableViewController.swift in Sources */,
 				046DEC6A2535FC5200B75040 /* AppDelegate.swift in Sources */,
 				04070D0B2596728E00B568F1 /* StepCell.swift in Sources */,
+				041547372598C425007D60FA /* ModelTransformer.swift in Sources */,
 				046DEC6C2535FC5200B75040 /* SceneDelegate.swift in Sources */,
 				04070D0F2596731300B568F1 /* RecipeCardViewController.swift in Sources */,
 			);
