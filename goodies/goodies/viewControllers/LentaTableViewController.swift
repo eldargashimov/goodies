@@ -63,13 +63,16 @@ class LentaTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return DishTableViewCell.height(for: dishes[indexPath.row].title, width: tableView.bounds.width)
+        return DishTableViewCell.height(for: dishes[indexPath.row].title, width: tableView.bounds.width - 16.0)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
         let dishViewController = RecipeCardViewController(recipe: dishes[indexPath.row], nibName: nil, bundle: nil)
         dishViewController.view.backgroundColor = .white
-        present(dishViewController, animated: true, completion: nil)
+//        dishViewController.modalPresentationStyle = .fullScreen
+        let navigationVC = UINavigationController(rootViewController: dishViewController)
+        navigationVC.modalPresentationStyle = .fullScreen
+        present(navigationVC, animated: true, completion: nil)
     }
 }

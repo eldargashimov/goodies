@@ -61,4 +61,8 @@ class StepCell: UITableViewCell {
         
         [stepNumber,stepImage,stepDescription,timerButton].forEach { addSubview($0) }
     }
+    
+    static func height(for model: String, width: CGFloat) -> CGFloat {
+        return model.height(for: width, font: UIFont(name: "Verdana", size: 14.0)!) + 4 * 10 + 250 + 20
+    }
 }

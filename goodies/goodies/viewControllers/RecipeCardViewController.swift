@@ -5,7 +5,7 @@ import PinLayout
 //let recipe = parser.getRecipes()[0]
 
 
-class RecipeCardViewController: UIViewController {
+class RecipeCardViewController: UIViewController, UIScrollViewDelegate {
     
     let parser = Parser()
 
@@ -32,22 +32,22 @@ class RecipeCardViewController: UIViewController {
     var recipeTableView = UITableView()
     var scrollView = UIScrollView()
 
-    let viewHeight: CGFloat = 540
+    let viewHeight: CGFloat = 560 - 88
     var ingredientIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 // колстыль
-        let tableViewHeight: CGFloat = CGFloat(recipe.ingredients.count * 44 + recipe.steps.count * 350 + 80)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissVC))
         
         recipeTableView.dataSource = self
         recipeTableView.delegate = self
         recipeTableView.bounces = false
         recipeTableView.isScrollEnabled = false
-//        scrollView.delegate = self
-//        scrollView.bounces = false
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: tableViewHeight + viewHeight)
+        scrollView.delegate = self
+        scrollView.bounces = false
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: screenHeight + viewHeight)//scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: recipeTableViewHeight + viewHeight)
         
         recipeTableView.separatorStyle = .none
         recipeTableView.register(IngredientCell.self, forCellReuseIdentifier: "ingredientCell")
@@ -78,8 +78,7 @@ class RecipeCardViewController: UIViewController {
         Жиры - \(recipe.nutrition["Жиры"]!)
         Углеводы - \(recipe.nutrition["Углеводы"]!)
         """
-        titleImage.contentMode = .scaleToFill
-        titleImage.backgroundColor = .black
+        titleImage.contentMode = .scaleAspectFill
         titleImage.image = parser.getImage(for: "\(recipe.id)") { alert in
             self.present(alert, animated: true, completion: nil)
         }
@@ -96,7 +95,7 @@ class RecipeCardViewController: UIViewController {
             .bottom()
         
         titleLabel.pin
-            .top(30)
+            .top(10)
             .left()
             .right()
             .height(20)
@@ -146,13 +145,14 @@ class RecipeCardViewController: UIViewController {
         
         recipeTableView.pin
             .top(to: portions.edge.bottom)
-            .height(CGFloat(recipe.ingredients.count * 44 + recipe.steps.count * 350 + 80))
+            .height(screenHeight - 40)
             .left()
             .right()
             .margin(10)
     }
     
     private func setupViews() {
+        
         [titleLabel,
          titleImage,
          timeCookingLabel,
@@ -164,28 +164,37 @@ class RecipeCardViewController: UIViewController {
         view.addSubview(scrollView)
     }
 //MARK: scroll in scroll?
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let yOffset = scrollView.contentOffset.y
-//
-//        if scrollView == self.scrollView {
-//            if yOffset >= self.scrollView.contentSize.height - screenHeight {
-//                scrollView.isScrollEnabled = false
-//                recipeTableView.isScrollEnabled = true
-//            }
-//        }
-//
-//        if scrollView == self.recipeTableView {
-//            if yOffset <= 0 {
-//                self.scrollView.isScrollEnabled = true
-//                self.recipeTableView.isScrollEnabled = false
-//            }
-//        }
-//    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yOffset = scrollView.contentOffset.y
+
+        if scrollView == self.scrollView {
+            if yOffset >= viewHeight {
+                print("yOffset scrollView = \(yOffset)")
+                scrollView.isScrollEnabled = false
+                recipeTableView.isScrollEnabled = true
+            }
+        }
+
+        if scrollView == self.recipeTableView {
+            print("yOffset = \(yOffset)")
+            if yOffset <= 0 {
+                print("yOffset tableView = \(yOffset)")
+                self.scrollView.isScrollEnabled = true
+                self.recipeTableView.isScrollEnabled = false
+            }
+        }
+    }
+    
+    @objc
+    private func dismissVC() {
+        self.navigationController?.dismiss(animated: true)
+    }
 }
 
 extension RecipeCardViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         return section == 0 ? "Ингредиенты" : "Рецепт"
     }
     
@@ -217,6 +226,8 @@ extension RecipeCardViewController: UITableViewDataSource, UITableViewDelegate {
             let stepCell = tableView.dequeueReusableCell(withIdentifier: "stepCell") as! StepCell
             stepCell.stepNumber.text = "Шаг \(indexPath.row + 1) из \(recipe.steps.count)"
             stepCell.stepDescription.text = recipe.steps["\(indexPath.row + 1)"]?.description
+            stepCell.stepDescription.font = UIFont(name: "Verdana", size: 14.0)
+            stepCell.stepDescription.numberOfLines = 0
 // MARK: WHAT DA FUCK?
             if let imageForStepKey = recipe.steps["\(indexPath.row + 1)"]?.img {
                 stepCell.stepImage.image = parser.getImage(for: "\(recipe.id)" + "/" + imageForStepKey) { alert in
@@ -234,10 +245,11 @@ extension RecipeCardViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if indexPath.section == 0 {
             return 44
         } else {
-            return 350
+            return StepCell.height(for: recipe.steps["\(indexPath.row + 1)"]!.description, width: tableView.bounds.width - 20.0)
         }
     }
 }

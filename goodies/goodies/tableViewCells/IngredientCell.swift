@@ -44,6 +44,8 @@ class IngredientCell: UITableViewCell {
         
         addToShoppingList.layer.cornerRadius = 5
         addToShoppingList.clipsToBounds = true
+        name.adjustsFontSizeToFitWidth = true
+        name.minimumScaleFactor = 0.5
         
         [name,quantity,addToShoppingList].forEach { addSubview($0) }
     }
