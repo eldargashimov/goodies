@@ -1,18 +1,47 @@
 
 import UIKit
+import PinLayout
 
 class ShoppingCell: UITableViewCell {
-
-    @IBOutlet weak var taskLabel: UILabel!
-    @IBOutlet weak var checkmarkImageView: NSLayoutConstraint!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    var nameLabel = UILabel()
+    var quantityLabel = UILabel()
+    var checkImage = UIImageView()
+    
+    override func layoutSubviews() {
+        
+//        imageView?.pin.vCenter().left().margin(10).width(27)
+        
+        checkImage.pin
+            .vCenter()
+            .left()
+            .width(27)
+            .height(27)
+            .margin(10)
+        
+        quantityLabel.pin
+            .right()
+            .top()
+            .bottom()
+            .width(80)
+            .margin(10)
+        
+        nameLabel.pin
+            .left(to: checkImage.edge.right)
+            .top()
+            .bottom()
+            .right(to: quantityLabel.edge.left)
+            .margin(10)
     }
+    override func awakeFromNib() {
+    
+        setup()
+    }
+    
+    private func setup() {
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        [checkImage,
+         quantityLabel,
+         nameLabel].forEach { addSubview($0) }
     }
 }

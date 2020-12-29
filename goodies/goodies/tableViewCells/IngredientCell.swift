@@ -26,9 +26,9 @@ class IngredientCell: UITableViewCell {
         addToShoppingList.pin
             .margin(10)
             .right()
-            .width(44)
             .top()
             .bottom()
+            .width(44)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -42,11 +42,22 @@ class IngredientCell: UITableViewCell {
     
     private func setup() {
         
+        addToShoppingList.addTarget(self, action: #selector(addIngredientToShoppingList), for: .touchUpInside)
+        addToShoppingList.setImage(UIImage(systemName: "bag"), for: .normal)
+        
         addToShoppingList.layer.cornerRadius = 5
         addToShoppingList.clipsToBounds = true
         name.adjustsFontSizeToFitWidth = true
         name.minimumScaleFactor = 0.5
         
-        [name,quantity,addToShoppingList].forEach { addSubview($0) }
+        [name,
+         quantity,
+         addToShoppingList].forEach { addSubview($0) }
+    }
+    
+    @objc private func addIngredientToShoppingList() {
+        addItem(nameItem: name.text!, isComplited: false, newDose: quantity.text!)
+        addToShoppingList.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        addToShoppingList.isEnabled = false
     }
 }

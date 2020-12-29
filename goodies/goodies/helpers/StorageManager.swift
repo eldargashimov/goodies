@@ -24,4 +24,17 @@ final class StorageManager {
             realm.delete(dish)
         }
     }
+    
+    static func saveProfileToDB(_ profile: Profile) {
+        
+        try! realm.write {
+            realm.add(profile)
+        }
+    }
+    static func deleteProfileFromDB(_ profile: Profile) {
+           
+        try! realm.write{
+            realm.delete(profile)
+        }
+    }
 }

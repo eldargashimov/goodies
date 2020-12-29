@@ -15,7 +15,7 @@ private struct Constants {
     static let dishImageHeight: CGFloat = 250.0
 }
 
-class DishTableViewCell: UITableViewCell {
+final class DishTableViewCell: UITableViewCell {
     
     var dishImage = UIImageView()
     var dishName = UILabel()
@@ -62,13 +62,5 @@ class DishTableViewCell: UITableViewCell {
     
     static func height(for model: String, width: CGFloat) -> CGFloat {
         return model.height(for: width, font: UIFont(name: "Verdana", size: 18.0)!) + 3 * Constants.standardIndent + Constants.dishImageHeight
-    }
-}
-
-extension String {
-    func height(for width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        return ceil(boundingBox.height)
     }
 }

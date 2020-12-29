@@ -27,15 +27,13 @@ class SearchTableViewController: MainTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Поиск"
-            // setup the search controller
-        searchController.searchResultsUpdater = self // получатель информации об изменении текста в строке поиска - наш класс
-        searchController.obscuresBackgroundDuringPresentation = false // позволяем пользователю взаимодействовать с полученным в результате поиска контентом
-        searchController.searchBar.placeholder = "Название или время приготовления" // то что написано в строке поиска перед вводом
-        navigationItem.searchController = searchController // вставляем строку поиска в навигейшн бар
-        definesPresentationContext = true // отпускаем строку поиска при переходе на другой экран
-            
+// setup the search controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Название или основной ингредиент"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
-        
         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return isFiltering ? filteredDishes.count : 0
@@ -74,21 +72,23 @@ class SearchTableViewController: MainTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-            let dishViewController = RecipeCardViewController(recipe: filteredDishes[indexPath.row], nibName: nil, bundle: nil)
-            dishViewController.view.backgroundColor = .white
-            let navigationVC = UINavigationController(rootViewController: dishViewController)
-            navigationVC.modalPresentationStyle = .fullScreen
-            present(navigationVC, animated: true, completion: nil)
+        let dishViewController = RecipeCardTableViewController(recipe: filteredDishes[indexPath.row], nibName: nil, bundle: nil)
+        dishViewController.view.backgroundColor = .white
+        let navigationVC = UINavigationController(rootViewController: dishViewController)
+        navigationVC.modalPresentationStyle = .fullScreen
+        present(navigationVC, animated: true, completion: nil)
     }
 }
 
 extension SearchTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        if isFiltering{
+        if isFiltering && Parser.internetConnectIsEnable {
             filterContentForSearchText(searchController.searchBar.text!)
-        }
+        } /*else {
+            filteredDishes = []
+            tableView.reloadData()
+        }*/
     }
-
 // MARK: search
     
     private func filterContentForSearchText(_ searchText: String) {
@@ -103,6 +103,5 @@ extension SearchTableViewController: UISearchResultsUpdating {
                 self.tableView.reloadData()
             }
         }
-//            filteredDishes = searchDishes.filter("name CONTAINS[c] %@ OR timeCooking CONTAINS[c] %@", searchText, searchText)
     }
 }

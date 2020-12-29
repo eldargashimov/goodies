@@ -6,26 +6,47 @@
 //
 
 import UIKit
+import PinLayout
 
 class LentaTableViewController: UITableViewController {
     
     var dishes: [DishParse.Recipe] = []
     let parser = Parser()
+    var activityIndicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(activityIndicator)
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         tableView.separatorStyle = .none
         DispatchQueue.global().async {
             let idArray = self.parser.getIdArray(count: 5) { [weak self] alert in
                 self?.present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self!.activityIndicator.stopAnimating()
+                    self!.activityIndicator.isHidden = true
+                }
+                Parser.internetConnectIsEnable = false.self
             }
             self.dishes = self.parser.getRecipes(idArray: idArray){ [weak self] alert in
                 self?.present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self!.activityIndicator.stopAnimating()
+                    self!.activityIndicator.isHidden = true
+                }
+                Parser.internetConnectIsEnable = false.self
             }
             DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        activityIndicator.pin.center()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +58,6 @@ class LentaTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
         let dish = dishes[indexPath.row]
-        
         cell.dishName.numberOfLines = 0
         cell.dishName.text = dish.title
         cell.dishName.font = UIFont(name: "Verdana", size: 18.0)
@@ -63,14 +83,14 @@ class LentaTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return DishTableViewCell.height(for: dishes[indexPath.row].title, width: tableView.bounds.width - 16.0)
+        return DishTableViewCell.height(for: dishes[indexPath.row].title, width: tableView.bounds.width - 20.0)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
-        let dishViewController = RecipeCardViewController(recipe: dishes[indexPath.row], nibName: nil, bundle: nil)
+        let dishViewController = RecipeCardTableViewController(recipe: dishes[indexPath.row], nibName: nil, bundle: nil)
         dishViewController.view.backgroundColor = .white
-//        dishViewController.modalPresentationStyle = .fullScreen
         let navigationVC = UINavigationController(rootViewController: dishViewController)
         navigationVC.modalPresentationStyle = .fullScreen
         present(navigationVC, animated: true, completion: nil)

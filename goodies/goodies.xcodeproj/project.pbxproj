@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04000DF7259B5E7A00E4DE5E /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04000DF6259B5E7A00E4DE5E /* ProfileModel.swift */; };
 		04070D0B2596728E00B568F1 /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04070D0A2596728E00B568F1 /* StepCell.swift */; };
 		04070D0D259672CC00B568F1 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04070D0C259672CC00B568F1 /* IngredientCell.swift */; };
-		04070D0F2596731300B568F1 /* RecipeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04070D0E2596731300B568F1 /* RecipeCardViewController.swift */; };
 		041547372598C425007D60FA /* ModelTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041547362598C425007D60FA /* ModelTransformer.swift */; };
 		043A55C4253B85BE0040B08D /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */; };
 		043DC184254076B10016DE0F /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DC183254076B10016DE0F /* DishTableViewCell.swift */; };
 		04463AB02559D9FE0064B8B8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04463AAF2559D9FE0064B8B8 /* StorageManager.swift */; };
 		044A326A255985C5008E6FF8 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A3269255985C5008E6FF8 /* SearchTableViewController.swift */; };
+		045065C02599DCD500A088B2 /* BaseClassesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045065BF2599DCD500A088B2 /* BaseClassesExtensions.swift */; };
+		045065C6259A8E8600A088B2 /* RecipeCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045065C5259A8E8600A088B2 /* RecipeCardTableViewController.swift */; };
+		045065C8259A8EE300A088B2 /* HeaderRecipeCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045065C7259A8EE300A088B2 /* HeaderRecipeCardCell.swift */; };
+		045065CA259AAA7600A088B2 /* RecipeDBTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045065C9259AAA7600A088B2 /* RecipeDBTableViewController.swift */; };
+		045065CC259AB6BB00A088B2 /* StyleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045065CB259AB6BB00A088B2 /* StyleColors.swift */; };
 		04657F7625973E6B00438DEC /* ModelForNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04657F7525973E6B00438DEC /* ModelForNetwork.swift */; };
 		04657F7825973EA800438DEC /* ModelForDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04657F7725973EA800438DEC /* ModelForDB.swift */; };
 		04657F7A2597455C00438DEC /* ShoppingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04657F792597455C00438DEC /* ShoppingCell.swift */; };
@@ -33,14 +38,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04000DF6259B5E7A00E4DE5E /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		04070D0A2596728E00B568F1 /* StepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCell.swift; sourceTree = "<group>"; };
 		04070D0C259672CC00B568F1 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
-		04070D0E2596731300B568F1 /* RecipeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardViewController.swift; sourceTree = "<group>"; };
 		041547362598C425007D60FA /* ModelTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTransformer.swift; sourceTree = "<group>"; };
 		043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		043DC183254076B10016DE0F /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		04463AAF2559D9FE0064B8B8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		044A3269255985C5008E6FF8 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		045065BF2599DCD500A088B2 /* BaseClassesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassesExtensions.swift; sourceTree = "<group>"; };
+		045065C5259A8E8600A088B2 /* RecipeCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardTableViewController.swift; sourceTree = "<group>"; };
+		045065C7259A8EE300A088B2 /* HeaderRecipeCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRecipeCardCell.swift; sourceTree = "<group>"; };
+		045065C9259AAA7600A088B2 /* RecipeDBTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDBTableViewController.swift; sourceTree = "<group>"; };
+		045065CB259AB6BB00A088B2 /* StyleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleColors.swift; sourceTree = "<group>"; };
 		04657F7525973E6B00438DEC /* ModelForNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForNetwork.swift; sourceTree = "<group>"; };
 		04657F7725973EA800438DEC /* ModelForDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForDB.swift; sourceTree = "<group>"; };
 		04657F792597455C00438DEC /* ShoppingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCell.swift; sourceTree = "<group>"; };
@@ -90,7 +100,8 @@
 				046DEC6D2535FC5200B75040 /* InitialViewController.swift */,
 				04D01428256F859400ABDC6E /* LentaTableViewController.swift */,
 				04DA97F32538EDFD00F71987 /* MainTableViewController.swift */,
-				04070D0E2596731300B568F1 /* RecipeCardViewController.swift */,
+				045065C5259A8E8600A088B2 /* RecipeCardTableViewController.swift */,
+				045065C9259AAA7600A088B2 /* RecipeDBTableViewController.swift */,
 				044A3269255985C5008E6FF8 /* SearchTableViewController.swift */,
 				043A55C3253B85BE0040B08D /* ShoppingTableViewController.swift */,
 				04FCBC74253DD7B9002CC30A /* ProfileViewController.swift */,
@@ -104,6 +115,7 @@
 				04A3B59A2586ABCA008CF292 /* Network.swift */,
 				04463AAF2559D9FE0064B8B8 /* StorageManager.swift */,
 				04657F7B2597488F00438DEC /* ShoppingModel.swift */,
+				045065BF2599DCD500A088B2 /* BaseClassesExtensions.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -111,9 +123,11 @@
 		04657F722597386700438DEC /* models */ = {
 			isa = PBXGroup;
 			children = (
+				04000DF6259B5E7A00E4DE5E /* ProfileModel.swift */,
 				04657F7725973EA800438DEC /* ModelForDB.swift */,
 				04657F7525973E6B00438DEC /* ModelForNetwork.swift */,
 				041547362598C425007D60FA /* ModelTransformer.swift */,
+				045065CB259AB6BB00A088B2 /* StyleColors.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -125,6 +139,7 @@
 				04070D0A2596728E00B568F1 /* StepCell.swift */,
 				04070D0C259672CC00B568F1 /* IngredientCell.swift */,
 				04657F792597455C00438DEC /* ShoppingCell.swift */,
+				045065C7259A8EE300A088B2 /* HeaderRecipeCardCell.swift */,
 			);
 			path = tableViewCells;
 			sourceTree = "<group>";
@@ -301,17 +316,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045065C8259A8EE300A088B2 /* HeaderRecipeCardCell.swift in Sources */,
 				043A55C4253B85BE0040B08D /* ShoppingTableViewController.swift in Sources */,
 				04657F7825973EA800438DEC /* ModelForDB.swift in Sources */,
 				044A326A255985C5008E6FF8 /* SearchTableViewController.swift in Sources */,
+				045065C02599DCD500A088B2 /* BaseClassesExtensions.swift in Sources */,
 				04657F7625973E6B00438DEC /* ModelForNetwork.swift in Sources */,
 				04A3B59B2586ABCA008CF292 /* Network.swift in Sources */,
 				04657F7A2597455C00438DEC /* ShoppingCell.swift in Sources */,
 				04DA97F42538EDFD00F71987 /* MainTableViewController.swift in Sources */,
 				04657F7C2597488F00438DEC /* ShoppingModel.swift in Sources */,
 				046DEC6E2535FC5200B75040 /* InitialViewController.swift in Sources */,
+				045065CA259AAA7600A088B2 /* RecipeDBTableViewController.swift in Sources */,
 				04070D0D259672CC00B568F1 /* IngredientCell.swift in Sources */,
+				045065C6259A8E8600A088B2 /* RecipeCardTableViewController.swift in Sources */,
 				04FCBC75253DD7B9002CC30A /* ProfileViewController.swift in Sources */,
+				04000DF7259B5E7A00E4DE5E /* ProfileModel.swift in Sources */,
 				043DC184254076B10016DE0F /* DishTableViewCell.swift in Sources */,
 				04463AB02559D9FE0064B8B8 /* StorageManager.swift in Sources */,
 				04D01429256F859400ABDC6E /* LentaTableViewController.swift in Sources */,
@@ -319,7 +339,7 @@
 				04070D0B2596728E00B568F1 /* StepCell.swift in Sources */,
 				041547372598C425007D60FA /* ModelTransformer.swift in Sources */,
 				046DEC6C2535FC5200B75040 /* SceneDelegate.swift in Sources */,
-				04070D0F2596731300B568F1 /* RecipeCardViewController.swift in Sources */,
+				045065CC259AB6BB00A088B2 /* StyleColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

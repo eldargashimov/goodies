@@ -42,15 +42,14 @@ class MainTableViewController: UITableViewController {
         cell.dishImage.contentMode = .scaleAspectFill
         cell.dishImage.clipsToBounds = true
 
-        if let timeCooking = dish.timeCooking {
-            cell.timeCooking.text = timeCooking
-        } else {
-            cell.timeCooking.text = "неизвестно"
-        }
+        cell.timeCooking.text = dish.timeCooking
 
         cell.timeCooking.font = UIFont(name: "Verdana", size: 16.0)
-        cell.timeCooking.textAlignment = .right
+        cell.timeCooking.textAlignment = .center
         cell.timeCooking.textColor = .white
+        cell.timeCooking.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+        cell.timeCooking.layer.cornerRadius = 5
+        cell.timeCooking.clipsToBounds = true
 
         return cell
     }
@@ -69,6 +68,16 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        return DishTableViewCell.height(for: dishes[indexPath.row].name!, width: tableView.bounds.width)
+        return DishTableViewCell.height(for: dishes[indexPath.row].name, width: tableView.bounds.width)
     }
+    
+      override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            let dishViewController = RecipeDBTableViewController(recipe: dishes[indexPath.row], nibName: nil, bundle: nil)
+            dishViewController.view.backgroundColor = .white
+            let navigationVC = UINavigationController(rootViewController: dishViewController)
+            navigationVC.modalPresentationStyle = .fullScreen
+            present(navigationVC, animated: true, completion: nil)
+        }
 }

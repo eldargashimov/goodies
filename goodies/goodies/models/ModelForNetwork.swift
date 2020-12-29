@@ -28,8 +28,7 @@ struct DishParse: Codable {
         }
         
         let steps: [String:Step]
-        
-//        let steps: [String:[String:String?]] // ["номер шага": ["описание шага":"ключ к фото для шага"]]
+
         struct Calories: Codable {
             
             let percent: Int

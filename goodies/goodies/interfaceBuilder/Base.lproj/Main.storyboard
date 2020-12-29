@@ -76,25 +76,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="izB-rT-fjU" detailTextLabel="SEm-Ek-OMM" imageView="r2X-vG-DmL" rowHeight="55" style="IBUITableViewCellStyleValue1" id="2Po-LA-iaZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopCell" textLabel="izB-rT-fjU" detailTextLabel="SEm-Ek-OMM" imageView="r2X-vG-DmL" rowHeight="55" style="IBUITableViewCellStyleValue1" id="2Po-LA-iaZ" customClass="ShoppingCell" customModule="goodies" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Po-LA-iaZ" id="lPL-JM-wiN">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Po-LA-iaZ" id="lPL-JM-wiN">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="izB-rT-fjU">
-                                            <rect key="frame" x="62" y="18" width="33.5" height="20.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="izB-rT-fjU">
+                                            <rect key="frame" x="20" y="18" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="uncheck" id="r2X-vG-DmL">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r2X-vG-DmL">
                                             <rect key="frame" x="20" y="14" width="27" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SEm-Ek-OMM">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SEm-Ek-OMM">
                                             <rect key="frame" x="350" y="18" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -103,6 +103,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="accessoryView" destination="lPL-JM-wiN" id="Y7m-bk-uLu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -123,7 +126,7 @@
                                     <action selector="openPopUp:" destination="ltu-jI-7lO" id="ecz-YM-vvv"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Изменить" id="T6P-V7-joF">
+                            <barButtonItem enabled="NO" id="T6P-V7-joF">
                                 <connections>
                                     <action selector="pushEditAction:" destination="ltu-jI-7lO" id="shE-4I-mlp"/>
                                 </connections>
@@ -152,7 +155,7 @@
                                 <constraint firstAttribute="height" constant="30" id="vwX-Gz-cPS"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="21"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.023529411760000001" green="0.33725490200000002" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPJ-C7-Ud3">
@@ -187,7 +190,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="0.38916319332013705" green="0.86278300921534012" blue="0.46952996815271147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.80392156859999997" green="0.83137254900000002" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="Kct-JT-Q14" firstAttribute="leading" secondItem="McY-V6-ZfY" secondAttribute="leading" constant="153" id="1pg-oT-IdL"/>
                         <constraint firstItem="muq-zX-TQ2" firstAttribute="top" secondItem="KCP-ue-0Yj" secondAttribute="bottom" constant="30" id="743-V0-ak7"/>
@@ -213,13 +216,13 @@
         <!--Tab Bar Controller-->
         <scene sceneID="l6C-Qj-g1m">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="uEY-lw-349" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="LentaTableViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="uEY-lw-349" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="6EA-l4-eH1"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sdT-b7-MvJ">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="hoS-Xd-t7w" kind="relationship" relationship="viewControllers" id="GmV-wc-eUc"/>
@@ -236,11 +239,17 @@
         <scene sceneID="3NN-2f-RM9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="hoS-Xd-t7w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Лента" image="house" catalog="system" id="o1Z-j5-My5"/>
+                    <tabBarItem key="tabBarItem" title="Лента" image="house" catalog="system" id="o1Z-j5-My5">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dms-Bp-Z7D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.023529411764705882" green="0.33725490196078434" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -340,6 +349,5 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="person" catalog="system" width="64" height="58"/>
-        <image name="uncheck" width="27" height="27"/>
     </resources>
 </document>

@@ -1,6 +1,6 @@
 import Foundation
 
-struct ShopItem:Codable {
+struct ShopItem: Codable {
     var name: String
     var isComplited: Bool
     var dose: String

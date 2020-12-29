@@ -55,23 +55,23 @@ class ShoppingTableViewController: UITableViewController {
         }
     }
     
-    
-    @IBAction func pushEditAction(_ sender: Any) {
-        tableView.setEditing(!tableView.isEditing, animated: true)
-    }
+//    
+//    @IBAction func pushEditAction(_ sender: Any) {
+//        tableView.setEditing(!tableView.isEditing, animated: true)
+//    }
     
     @IBAction func pushDoneAction(_ sender: Any) {
         while ToShopItems.isEmpty == false {
             removeItem(at: 0)
         }
         tableView.reloadData()
-        
     }
     
     @IBOutlet var toshopTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if let data = UserDefaults.standard.value(forKey:"ToShopItems") as? Data {
             ToShopItems = try! PropertyListDecoder().decode(Array<ShopItem>.self, from: data)
         }
@@ -82,18 +82,18 @@ class ShoppingTableViewController: UITableViewController {
         popUpPicker.dataSource = self
         popUpPicker.delegate = self
         
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -102,23 +102,22 @@ class ShoppingTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "shopCell", for: indexPath) as! ShoppingCell
 
         let currentItem = ToShopItems[indexPath.row]
-        cell.textLabel?.text = currentItem.name
-        cell.detailTextLabel?.text = currentItem.dose
+        cell.nameLabel.adjustsFontSizeToFitWidth = true
+        cell.nameLabel.text = currentItem.name
+        cell.quantityLabel.text = currentItem.dose
+        cell.quantityLabel.adjustsFontSizeToFitWidth = true
         
         if (currentItem.isComplited) == true {
-            cell.imageView?.image = UIImage(named: "check")
+            cell.checkImage.image = UIImage(named: "check")
             
         } else {
-            cell.imageView?.image = UIImage(named: "uncheck")
+            cell.checkImage.image = UIImage(named: "uncheck")
         }
-
         return cell
     }
-    
-
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -126,13 +125,10 @@ class ShoppingTableViewController: UITableViewController {
         return true
     }
     
-
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            print(indexPath.row)
             removeItem(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -145,21 +141,17 @@ class ShoppingTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if changeState(at: indexPath.row) {
-            tableView.cellForRow(at: indexPath)?.imageView?.image = UIImage(named: "check")
+            (tableView.cellForRow(at: indexPath) as! ShoppingCell).checkImage.image = UIImage(named: "check")
         } else {
-            tableView.cellForRow(at: indexPath)?.imageView?.image = UIImage(named: "uncheck")
+            (tableView.cellForRow(at: indexPath) as! ShoppingCell).checkImage.image = UIImage(named: "uncheck")
         }
-        
-
     }
-
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         moveItem(fromIndex: fromIndexPath.row, toIndex: to.row)
         
         tableView.reloadData()
-
     }
     
 

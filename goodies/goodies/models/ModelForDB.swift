@@ -2,64 +2,40 @@ import RealmSwift
 import UIKit
 
 final class Step: Object {
-    @objc dynamic var stepDescription: String?
-    @objc dynamic var stepImageData: Data?
+    @objc dynamic var stepDescription: String = ""
+    @objc dynamic var stepImageData: Data? = nil
 }
 
 final class Calories: Object {
-    var percent: NSNumber?
-    @objc dynamic var unit: String?
-    var value: NSNumber?
+    @objc dynamic var percent = 0
+    @objc dynamic var unit: String = ""
+    @objc dynamic var value = 0
+}
+
+final class Ingredient: Object {
+    @objc dynamic var name: String = ""
+    @objc dynamic var quantity: String = ""
+}
+
+final class Nutrilion: Object {
+    @objc dynamic var proteins: String = ""
+    @objc dynamic var fats: String = ""
+    @objc dynamic var carbohydrates: String = ""
 }
 
 final class Dish: Object {
     
-    @objc dynamic var name: String?
-    @objc dynamic var imageData: Data?
-    @objc dynamic var timeCooking: String? 
-    @objc dynamic var dishDescription: String?
-    var ingredients: [String : String]?
-    var nutrilion: [String : String]?
-    var portions: NSNumber?
+    @objc dynamic var name: String = ""
+    @objc dynamic var imageData: Data? = nil
+    @objc dynamic var timeCooking: String = ""
+    @objc dynamic var dishDescription: String = ""
+    var ingredients = List<Ingredient>()
+    let nutrilion = List<Nutrilion>() // 1
+    @objc dynamic var portions = 0
     
-    var steps: [String : Step]?
+    let steps = List<Step>()
     
-    var calories: Calories?
+    let calories = List<Calories>() // 1
     
-    // ниже - код для создания НЕПУСТОЙ базы данных
-    
-    let someDishes = ["Карбонара",
-                      "Борщ",
-                      "Ичпачмак",
-                      "Ризотто с креветками",
-                      "Британский завтрак",
-                      "Неаполитанская пицца",
-                      "Хинкали",
-                      "Манты",
-                      "Тататрский плов",
-                      "Бурата с томатами и перцем",
-                      "Фаршированный перец",
-                      "Ленивые вареники",
-                      "Цезарь с курицей",
-                      "Брускетта со страчателлой",
-                      "Поэлья",
-                      "Блинчики с сулугуни и шпинатом",
-                      "Глазунья",
-                      "Шарлотка",
-                      "Фаршированный индюк"]
-
-    func saveDishesToDB () {
-
-        let imageData = UIImage(named: "dish")?.pngData()
-
-        for dish in someDishes {
-            
-            let newDish = Dish()
-            newDish.name = dish
-            newDish.imageData = imageData
-            newDish.timeCooking = "\(Int.random(in: 10...90)) мин."
-            StorageManager.saveDishToDB(newDish)
-        }
-    }
+    @objc dynamic var id = 0
 }
-

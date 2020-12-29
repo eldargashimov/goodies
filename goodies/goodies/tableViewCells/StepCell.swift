@@ -6,7 +6,7 @@ class StepCell: UITableViewCell {
     var stepNumber = UILabel()
     var stepDescription = UILabel()
     var stepImage = UIImageView()
-    var timerButton = UIButton()
+//    var timerButton = UIButton()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -32,12 +32,12 @@ class StepCell: UITableViewCell {
             .bottom()
             .margin(10)
         
-        timerButton.pin
-            .bottom(to: stepImage.edge.bottom)
-            .right(to: stepImage.edge.right)
-            .width(44)
-            .height(44)
-            .margin(10)
+//        timerButton.pin
+//            .bottom(to: stepImage.edge.bottom)
+//            .right(to: stepImage.edge.right)
+//            .width(44)
+//            .height(44)
+//            .margin(10)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -54,12 +54,7 @@ class StepCell: UITableViewCell {
         stepImage.layer.cornerRadius = 20
         stepImage.clipsToBounds = true
         
-        timerButton.backgroundColor = .gray
-        timerButton.isHidden = true
-        timerButton.layer.cornerRadius = 5
-        timerButton.clipsToBounds = true
-        
-        [stepNumber,stepImage,stepDescription,timerButton].forEach { addSubview($0) }
+        [stepNumber,stepImage,stepDescription/*,timerButton*/].forEach { addSubview($0) }
     }
     
     static func height(for model: String, width: CGFloat) -> CGFloat {

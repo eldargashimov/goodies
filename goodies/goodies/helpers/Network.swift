@@ -17,6 +17,8 @@ func getAlert(message : String) -> UIAlertController {
 
 final class Parser {
     
+    static var internetConnectIsEnable: Bool = true
+    
     func getIdArray (count: Int, completion: @escaping (UIAlertController) -> Void) -> [String] {
         
         var idArray: [String] = []
@@ -128,11 +130,11 @@ final class Parser {
                 completion(getAlert(message:error.localizedDescription))
                 return
             }
-            guard let imageData = data else {
+            if let imageData = data {
+                image = UIImage(data: imageData) ?? UIImage(named: "turok")!
+            } else {
                 completion(getAlert(message:"Не удалось загрузить данные с сервера:("))
-                return
             }
-            image = UIImage(data: imageData)!
             group.leave()
         }.resume()
         group.wait()
